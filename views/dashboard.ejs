@@ -6,13 +6,23 @@
 
   <ul class="list-group">
     <% clients.forEach(function(client){%>
-      <li class="list-group-item d-flex justify-content-between align-items-center" id="<%= client._id%>"><span><%= client.title%></span> <span> <span class="fas fa-edit m-2"></span> <span class="fas fa-trash-alt m-2"></span></span></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center" id="<%= client._id%>"><a href="/client/<%= client._id%>"><%= client.title%></a> <span> <span data="<%= client._id%>" style="cursor:pointer" class="fas fa-edit m-2"></span> <span style="cursor:pointer"  data="<%= client._id%>" class="fas fa-trash-alt m-2"></span></span></li>
     <% })%>
   </ul>
 </div>
-<%include layouts/footer %>
+<%include('layouts/footer')%>
 
 <script>
+
+$('.fa-edit').click(event=>{
+  const id = event.target.attributes.data.value
+  window.location.href = `/client/edit/${id}`
+})
+
+$('.fa-trash-alt').click(event=>{
+  const id = event.target.attributes.data.value
+  window.location.href = `/client/delete/${id}`
+})
 
 $('#addClient').click(()=>{
   window.location.href = '/newclient'

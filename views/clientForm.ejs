@@ -2,7 +2,7 @@
 
 <div class="container">
   <h1 class="text-center">new client</h1>
-  <form action="/newclient" method="POST">
+  <form action="<%= type=='add'? '/newclient':'/updateclient/'%><%= type=='update'? id:'' %>" method="POST">
     <% if (error) { %>
       <div class="alert alert-danger" role="alert">
         <%= error %>
@@ -31,11 +31,13 @@
     <button type="submit" class="btn btn-primary"><%= type %></button>
   </form>
 
+<%include('layouts/footer')%>
 
 <script>
   $('.datepicker').datepicker()
+  
+
 </script>
 
-<%include layouts/footer %>
 
 

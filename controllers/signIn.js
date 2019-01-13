@@ -17,7 +17,5 @@ export default async function(req, res) {
 
   const token = user.genToken()
 
-  return res
-    .cookie('Authorization', token)
-    .render('dashboard', { email: user.email, title: 'dashboard' })
+  return res.cookie('Authorization', token).redirect('/')
 }
