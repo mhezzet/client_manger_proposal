@@ -16,7 +16,8 @@ const Service = mongoose.model(
     ],
     client: {
       type: mongoose.Types.ObjectId,
-      ref: 'client'
+      ref: 'client',
+      required: true
     },
     link: {
       type: String,

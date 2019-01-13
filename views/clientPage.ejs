@@ -1,0 +1,61 @@
+<%- include('layouts/header', {email,title:data.title}) %>
+
+<div class="container">
+
+    <h1 class="text-center m-4"><%=data.title %></h1>
+
+  <table class="table">
+      <tr>
+        <th scope="row">Title</th>
+        <td><%= data.title %></td>
+      </tr>
+      <tr>
+        <th scope="row">Contact Phone</th>
+        <td><%= data.contactPhone %></td>
+      </tr>
+      <tr>
+        <th scope="row">Contract Start Date</th>
+        <td><%= data.contractStartDate %></td>
+      </tr>
+      <tr>
+        <th scope="row">Contract End Date</th>
+        <td><%= data.contractEndDate %></td>
+      </tr>
+  </table>
+
+    <h3 class="text-center m-4">services</h3>
+    <a href="/service/add/<%=id %>" class="btn btn-primary m-4" role="button" aria-pressed="true"><span class="far fa-plus-square"></span> add service</a>
+      
+      <%services.forEach(function(service){ %>
+        <table class="table">
+          <tr>
+            <th scope="row">Title</th>
+            <td><%= service.title %></td>
+          </tr>
+          <tr>
+            <th scope="row">Type</th>
+            <td><%= service.type %></td>
+          </tr>
+          <tr>
+            <th scope="row">Link</th>
+            <td><%= service.link %></td>
+          </tr>
+          <tr>
+            <th scope="row">Description</th>
+            <td><%= service.description %></td>
+          </tr>
+        </table>
+        <div class="mb-5" >
+          <a href="/deleteService/<%=service.id %>" class="btn btn-danger  m-2" role="button" aria-pressed="true"><span class="fas fa-trash-alt"></span> delete service</a>
+          <a href="/service/edit/<%=service.id %>" class="btn btn-secondary  m-2" role="button" aria-pressed="true"><span class="fas fa-edit"></span> Edit service</a>
+        </div>
+
+      <%})%>
+</div>
+
+<%include('layouts/footer')%>
+
+
+<script>
+
+</script>

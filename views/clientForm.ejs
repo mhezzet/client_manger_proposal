@@ -1,7 +1,7 @@
 <%- include('layouts/header', {email,title}) -%>
 
 <div class="container">
-  <h1 class="text-center">new client</h1>
+  <h1 class="text-center"><%=type==='add'?'New Client':''%><%=type==='update'?data.title:'' %></h1>
   <form action="<%= type=='add'? '/newclient':'/updateclient/'%><%= type=='update'? id:'' %>" method="POST">
     <% if (error) { %>
       <div class="alert alert-danger" role="alert">
@@ -30,6 +30,7 @@
     </div>
     <button type="submit" class="btn btn-primary"><%= type %></button>
   </form>
+</div>
 
 <%include('layouts/footer')%>
 

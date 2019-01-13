@@ -10,7 +10,13 @@ import {
   createClient,
   deleteClient,
   editClient,
-  updateClient
+  updateClient,
+  client,
+  addService,
+  newService,
+  removeService,
+  editService,
+  updateService
 } from '../controllers'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -31,4 +37,10 @@ export default function(app) {
   app.post('/updateclient/:id', admin, updateClient)
   app.get('/client/delete/:id', admin, deleteClient)
   app.get('/client/edit/:id', admin, editClient)
+  app.get('/client/:id', admin, client)
+  app.get('/service/add/:id', admin, addService)
+  app.get('/deleteservice/:id', admin, removeService)
+  app.post('/newservice/:id', admin, newService)
+  app.get('/service/edit/:id', admin, editService)
+  app.post('/updateservice/:id', admin, updateService)
 }
