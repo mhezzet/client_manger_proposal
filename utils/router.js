@@ -1,4 +1,9 @@
 import { admin, notAdmin } from '../middlewares'
+import express from 'express'
+import cookieParser from 'cookie-parser'
+import compression from 'compression'
+import helmet from 'helmet'
+import config from 'config'
 import {
   dashboard,
   register,
@@ -18,10 +23,12 @@ import {
   editService,
   updateService
 } from '../controllers'
-import express from 'express'
-import cookieParser from 'cookie-parser'
 
 export default function(app) {
+  if (config.get('env') === 'production') {
+    app.use(helmet())
+    app.use(compression())
+  }
   app.set('view engine', 'ejs')
   app.use(cookieParser())
   app.use(express.urlencoded({ extended: true }))
