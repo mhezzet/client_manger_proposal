@@ -1,15 +1,21 @@
 
 <%- include('layouts/header', {email,title}) -%>
-
 <div class="container">
-  <h1 style="text-align:center"> clients </h1>
+  <h1 class="text-center">clients </h1>
+  <button id="addClient" type="button" class="btn btn-primary m-3"><span class="far fa-plus-square"></span> add client</button>
 
   <ul class="list-group">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <% clients.forEach(function(client){%>
+      <li class="list-group-item d-flex justify-content-between align-items-center" id="<%= client._id%>"><span><%= client.title%></span> <span> <span class="fas fa-edit m-2"></span> <span class="fas fa-trash-alt m-2"></span></span></li>
+    <% })%>
   </ul>
 </div>
 <%include layouts/footer %>
+
+<script>
+
+$('#addClient').click(()=>{
+  window.location.href = '/newclient'
+})
+
+</script>

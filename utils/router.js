@@ -5,7 +5,9 @@ import {
   newAdmin,
   login,
   signIn,
-  logout
+  logout,
+  newClient,
+  createClient
 } from '../controllers'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -21,4 +23,6 @@ export default function(app) {
   app.post('/register', newAdmin)
   app.post('/login', signIn)
   app.get('/logout', admin, logout)
+  app.get('/newclient', admin, newClient)
+  app.post('/newclient', admin, createClient)
 }

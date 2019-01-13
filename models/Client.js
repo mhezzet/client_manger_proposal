@@ -6,7 +6,8 @@ const Client = mongoose.model(
     title: {
       type: String,
       maxlength: 50,
-      trim: true
+      trim: true,
+      required: true
     },
     description: {
       type: String,
@@ -14,10 +15,11 @@ const Client = mongoose.model(
     },
     contactPhone: {
       type: String,
-      maxlength: 30
+      maxlength: 30,
+      required: true
     },
-    contractStartDate: Date,
-    contractEndDate: Date
+    contractStartDate: { type: Date, required: true },
+    contractEndDate: { type: Date, required: true }
   })
 )
 

@@ -1,0 +1,41 @@
+<%- include('layouts/header', {email,title}) -%>
+
+<div class="container">
+  <h1 class="text-center">new client</h1>
+  <form action="/newclient" method="POST">
+    <% if (error) { %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+    <% } %>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" value="<%=data.title %>" name="title" required maxlength="50" class="form-control" id="title" placeholder="title">
+    </div>
+    <div class="form-group">
+      <label for="contactPhone">Contact Phone</label>
+      <input type="text" value="<%=data.contactPhone %>"  name="contactPhone" required maxlength="30" class="form-control" id="contactPhone" placeholder="contact phone">
+    </div>
+    <div class="form-group">
+      <label for="contractStartDate">Contract Start Date</label>
+      <input type="text" value="<%=data.contractStartDate %>" name="contractStartDate" required class="form-control datepicker" id="contractStartDate" placeholder="contract start date">
+    </div>
+    <div class="form-group">
+      <label for="contractEndDate">Contract End Date</label>
+      <input type="text" value="<%=data.contractEndDate %>" name="contractEndDate" required class="form-control datepicker" id="contractEndDate" placeholder="contract end date">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" value="<%=data.description %>" name="description" maxlength="500" class="form-control" id="description" placeholder="description" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary"><%= type %></button>
+  </form>
+
+
+<script>
+  $('.datepicker').datepicker()
+</script>
+
+<%include layouts/footer %>
+
+
