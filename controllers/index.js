@@ -1,0 +1,6 @@
+export { default as dashboard } from './dashboard'
+export { default as register } from './register'
+export { default as newAdmin } from './newAdmin'
+export { default as login } from './login'
+export { default as signIn } from './signIn'
+export { default as logout } from './logout'
