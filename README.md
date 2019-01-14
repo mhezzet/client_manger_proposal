@@ -12,7 +12,7 @@
 
 ### description
 
-this is a demo app for admin can manage some clients and their associated data
+this is a demo app that admin can manage some clients and their associated data
 i have used express.js as server, ejs as a template engine and mongo as a database server
 
 ### ER - diagram
