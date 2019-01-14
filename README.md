@@ -6,7 +6,7 @@
 
 ### usage
 
-- requirements: node, npm, mongo server listening @port: 27027
+- requirements: node, npm, mongo server listening @port: 27017
 - run -> npm install
 - run -> npm start
 
